@@ -97,7 +97,11 @@ export class AuthService{
         {     
             return await this.account.get();
         } catch (error) {
-            console.log("Appwritr server:GetUserError",error);
+            if (error?.code === 401 || error?.response?.code === 401) {
+                return null;
+            }
+            console.log("Appwrite server:GetUserError",error);
+            return null;
         }
     }
 
