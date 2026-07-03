@@ -1,0 +1,21 @@
+import React from 'react'
+import {useState,useSelector} from 'react'
+import { useNavigate } from 'react-router-dom'
+
+ export default function Protected({children,authentication}) {
+    const navigate=useNavigate()
+    const [loader,setLoader]=useState(true)
+    const authStatus=useSelector((state)=>state.auth.staus)
+
+    useEffect(()=>{
+      if(authentication && authStatus!==authentication)
+          navigate('/login')
+      else if(!authentication && authStatus!==authentication)
+      {
+          navigate('/')
+      }
+
+      setLoader(false)
+    },[authStatus,navigate,authentication])
+  return loader ?<h1>Loading...</h1>:<>{children}</>
+}
