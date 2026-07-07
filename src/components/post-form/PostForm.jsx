@@ -15,7 +15,6 @@ function PostForm({ post }) {
         status: post ? status : "active",
       },
     });
-
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
   const submit = async (data) => {
@@ -50,7 +49,6 @@ function PostForm({ post }) {
             }
         }
   };
-
   const slugTransform = useCallback((value) => {
     if (value && typeof value === "string") {
       value

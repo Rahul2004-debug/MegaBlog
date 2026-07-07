@@ -15,5 +15,4 @@ function Postcard({$id,title,featuredImage,}) {
     </Link> 
   )
 }
-
-export default Postcard
+export default Postcard;
