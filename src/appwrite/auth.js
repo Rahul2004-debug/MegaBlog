@@ -74,6 +74,13 @@ export class AuthService{
             }
         }catch(err)
         {
+            console.error("Signup Error Details:", {
+                message: err.message,
+                code: err.code,
+                status: err.status,
+                response: err.response,
+                fullError: err
+            });
             throw err;
         }
     }
